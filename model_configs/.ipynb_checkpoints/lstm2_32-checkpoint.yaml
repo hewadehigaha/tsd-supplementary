@@ -1,0 +1,4 @@
+model:
+    hidden_size: 32
+    num_layers: 2
+
