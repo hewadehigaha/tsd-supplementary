@@ -72,10 +72,6 @@ git clone https://github.com/hewadehigaha/tsd-supplementary.git
 cd tsd-supplementary
 ```
 
-Please refer to the provided experiment scripts for training the teacher and student models and reproducing the experiments reported in the paper.
-
-## Running the Experiments
-
 The experiments follow a two-stage procedure. First, train the teacher models on the selected UCR datasets. Then, use the trained teacher models to train and evaluate the student models.
 
 ### 1. Train the Teacher Models
