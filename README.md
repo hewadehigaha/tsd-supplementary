@@ -14,7 +14,7 @@ Knowledge distillation (KD) typically transfers knowledge from a large teacher m
 
 We propose **Temporal Saliency Distillation (TSD)**, a knowledge distillation approach for time-series classification that transfers not only the teacher's predictions but also its reasoning.
 
-TSD derives **temporal saliency** from the teacher's predictive distribution by measuring its sensitivity to perturbations at individual time steps. The student is then trained to match the temporal saliency of the teacher, encouraging it to base its predictions on similar temporal features.
+TSD derives **temporal saliency** from the teacher's predictive distribution by measuring its sensitivity to perturbations at individual time steps (or subsequence). The student is then trained to match the temporal saliency of the teacher, encouraging it to base its predictions on similar temporal features.
 
 TSD:
 
@@ -27,7 +27,7 @@ TSD:
 
 ## Method
 
-For each input time series, TSD estimates the importance of individual time steps by measuring changes in the teacher's predictive distribution after perturbing the corresponding input regions.
+For each input time series, TSD estimates the importance of individual time steps or subsequences by measuring changes in the teacher's predictive distribution after perturbing the corresponding input regions.
 
 The student is trained using the conventional task/distillation objective together with a temporal saliency matching objective:
 
@@ -62,15 +62,6 @@ The experiments use time-series classification datasets from the **UCR Time Seri
 
 Please download the required datasets from the UCR archive and configure the dataset path according to the experiment scripts.
 
-## Requirements
-
-The implementation is based on **Python** and **PyTorch**.
-
-Install the required dependencies according to your Python environment. A `requirements.txt` file can be used to reproduce the environment:
-
-```bash
-pip install -r requirements.txt
-```
 
 ## Running the Experiments
 
@@ -82,6 +73,59 @@ cd tsd-supplementary
 ```
 
 Please refer to the provided experiment scripts for training the teacher and student models and reproducing the experiments reported in the paper.
+
+## Running the Experiments
+
+The experiments follow a two-stage procedure. First, train the teacher models on the selected UCR datasets. Then, use the trained teacher models to train and evaluate the student models.
+
+### 1. Train the Teacher Models
+
+Train the teacher models using:
+
+```bash
+bash run_teacher.sh
+```
+
+The trained teacher models and experimental results are saved to the directories specified in `run_teacher.sh`.
+
+### 2. Train the Student Models
+
+After training the teacher models, run the student experiments using:
+
+```bash
+bash run_student.sh
+```
+
+The trained student models and experimental results are saved to the directories specified in `run_student.sh`.
+
+### 3. Running an Individual Dataset
+
+Experiments can also be performed on an individual dataset by directly running the corresponding Python scripts.
+
+To train a teacher:
+
+```bash
+python teacher_main.py --dataset=ECG200
+```
+
+To train and evaluate a student:
+
+```bash
+python student_main.py --dataset=ECG200
+```
+
+Additional arguments for the model configuration, knowledge distillation methods, training settings, and output directories can be specified through the command line.
+
+### Reproducing the Experiments
+
+To reproduce the experiments using the configurations provided in this repository, run:
+
+```bash
+bash run_teacher.sh
+bash run_student.sh
+```
+
+The dataset lists, random seeds, training configurations, and hyperparameters used in the experiments are specified in the corresponding shell scripts.
 
 ## Paper
 
