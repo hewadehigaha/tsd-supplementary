@@ -119,7 +119,7 @@ class UCRTrainer(BaseTrainer):
         assert self.experiment in UCR_DATASETS, \
             f'{self.experiment} must be one of the UCR datasets: ' \
             f'https://www.cs.ucr.edu/~eamonn/time_series_data/'
-        experiment_datapath = self.data_folder / 'UCR_TS_Archive_2015' / self.experiment
+        experiment_datapath = self.data_folder / self.experiment
         if self.encoder is None:
             train, test, encoder = load_ucr_data(experiment_datapath)
             self.encoder = encoder

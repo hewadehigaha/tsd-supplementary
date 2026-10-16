@@ -1,0 +1,12 @@
+# Data folders
+ucr_data/
+
+# Results
+teacher_results/
+teacher_models/
+
+
+#checkpoints
+**/__pycache__/
+**/.ipynb_checkpoints/
+
