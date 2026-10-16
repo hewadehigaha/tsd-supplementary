@@ -140,7 +140,7 @@ def _load_data(experiment, data_folder, encoder) -> Tuple[InputData, InputData]:
     assert experiment in UCR_DATASETS, \
         f'{experiment} must be one of the UCR datasets: ' \
         f'https://www.cs.ucr.edu/~eamonn/time_series_data/'
-    experiment_datapath = data_folder / 'UCR_TS_Archive_2015' / experiment
+    experiment_datapath = data_folder / experiment
     if encoder is None:
         train, test, encoder = load_ucr_data(experiment_datapath)
     else:

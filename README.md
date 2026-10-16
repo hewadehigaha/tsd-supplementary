@@ -58,7 +58,8 @@ Please refer to the source files and experiment scripts in this repository for t
 
 ## Datasets
 
-The experiments use time-series classification datasets from the **UCR Time Series Classification Archive**.
+The experiments use time-series classification datasets from the **[UCR Time Series Classification Archive](https://www.cs.ucr.edu/~eamonn/time_series_data/)**.
+> NOTE: This script may need minor changes to support the later (>2015) versions of the UCR dataset
 
 Please download the required datasets from the UCR archive and configure the dataset path according to the experiment scripts.
 
