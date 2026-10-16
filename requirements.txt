@@ -1,0 +1,7 @@
+numpy
+matplotlib
+scikit-learn
+tqdm
+numba
+torch
+torchvision
